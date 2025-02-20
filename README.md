@@ -77,6 +77,7 @@ Para que GnuDIP funcione correctamente, es necesario configurar Apache2 para man
 
 Alias /html /opt/gnudip/html/
 Alias /login /opt/gnudip/cgi-bin/gnudip.cgi
+
 <Location /gnudip/html/>
     Options Indexes
     ReadmeName .README
@@ -86,6 +87,7 @@ Alias /login /opt/gnudip/cgi-bin/gnudip.cgi
     AddType text/plain .pl
 </Location>
 
+----------------
 
 nota importante: si piensan usarla local comentar esta linea {RedirectMatch ^/gnudip(\/*)$ https://ns1.ddns.ocsapro/gnudip/cgi-bin/gnudip.cgi}
 
