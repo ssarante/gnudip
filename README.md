@@ -1,7 +1,9 @@
 # README para AutoInstallv1.sh
 
 Este script (`AutoInstallv1.sh`) está diseñado para instalar y configurar GnuDIP en un servidor Linux. GnuDIP es un servicio de DNS dinámico que permite gestionar nombres de dominio asociados a direcciones IP cambiantes.
+
 wget https://github.com/ssarante/gnudip/raw/refs/heads/main/AutoInstallv1.sh --no-check-certificate
+
 chmod +x AutoInstallv1.sh
 
 ## Requisitos
@@ -51,7 +53,8 @@ Para que GnuDIP funcione correctamente, es necesario configurar Apache2 para man
    nano /etc/apache2/sites-enabled/default-ssl.conf
 
    agregar estas lineas
--------------------------------------------------------
+   
+------------------
    <VirtualHost _default_:443>
 		ServerAdmin webmaster@localhost
 
@@ -69,7 +72,9 @@ Para que GnuDIP funcione correctamente, es necesario configurar Apache2 para man
     			Require all granted
 		</Directory>
 
-------------------------------------------
+
+----------------
+
 Alias /html /opt/gnudip/html/
 Alias /login /opt/gnudip/cgi-bin/gnudip.cgi
 <Location /gnudip/html/>
@@ -80,6 +85,7 @@ Alias /login /opt/gnudip/cgi-bin/gnudip.cgi
     RemoveType .pl
     AddType text/plain .pl
 </Location>
+
 
 nota importante: si piensan usarla local comentar esta linea {RedirectMatch ^/gnudip(\/*)$ https://ns1.ddns.ocsapro/gnudip/cgi-bin/gnudip.cgi}
 
