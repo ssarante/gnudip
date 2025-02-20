@@ -14,12 +14,12 @@ gdipadmin_script="/opt/gnudip/sbin/gdipadmin.pl"
 services_file="/etc/services"
 xinetd_config="/etc/xinetd.d/gnudip"
 gnudip_server="/opt/gnudip/sbin/gdipinet.pl"
-gnudip_tar="/opt/gnudip/gnudip-2.4.tar.gz"
+gnudip_tar="gnudip-2.4.tar.gz"
 url="https://github.com/ssarante/gnudip/raw/refs/heads/main/gnudip-2.4.tar.gz"
 ip_address=$(hostname -I | awk '{print $1}')
 
 # Actualizar e instalar paquetes necesarios
-apt update && apt install -y bind9 apache2 libapache2-mod-perl2 mysql-server dnsutils xinetd wget 
+apt update && apt install -y bind9 apache2 libapache2-mod-perl2 mysql-server dnsutils xinetd wget libdbd-mysql-perl
 
 # Configurar la zona DNS
 cat <<EOF >> /etc/bind/named.conf.local
@@ -77,16 +77,16 @@ else
     exit 1
 fi
 
-# Modificar el archivo para hacerlo compatible con MySQL 5.*
-sed -i "s/\(.*\)default '0'\(.*\)auto_increment,/\1\2auto_increment,/" "$file_mysql"
-
-# Confirmar que el cambio se realizó
-if grep -q "auto_increment," "$file_mysql"; then
-    echo "Archivo $file_mysql modificado correctamente para compatibilidad con MySQL 5.*."
-else
-    echo "Error: No se pudo aplicar la modificación."
-    exit 1
-fi
+## Modificar el archivo para hacerlo compatible con MySQL 5.*
+#sed -i "s/\(.*\)default '0'\(.*\)auto_increment,/\1\2auto_increment,/" "$file_mysql"
+#
+## Confirmar que el cambio se realizó
+#if grep -q "auto_increment," "$file_mysql"; then
+#    echo "Archivo $file_mysql modificado correctamente para compatibilidad con MySQL 5.*."
+#else
+#    echo "Error: No se pudo aplicar la modificación."
+#    exit 1
+#fi
 
 # Verificar si los archivos se extrajeron correctamente
 if [ ! -d "/opt/gnudip/etc" ]; then
