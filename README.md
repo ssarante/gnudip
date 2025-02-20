@@ -92,15 +92,24 @@ Alias /login /opt/gnudip/cgi-bin/gnudip.cgi
 nota importante: si piensan usarla local comentar esta linea {RedirectMatch ^/gnudip(\/*)$ https://ns1.ddns.ocsapro/gnudip/cgi-bin/gnudip.cgi}
 
 ## reiniar servicios y dar permisos
+
 sudo chown -R www-data:www-data /opt/gnudip/
+
 sudo chmod -R 755 /opt/gnudip/
+
 sudo a2enmod cgi
+
 sudo systemclt restart apache2
+
    
 ## Webpanel
+
 abrir el navegador y acceder 
+
   https://ip/login - https://127.0.0.1/login
+  
   https://ip/html - https://127.0.0.1/html
+  
   username:admin passsword:admin
 
   ![imagen](https://github.com/user-attachments/assets/e666aaa4-8fa5-449a-8316-f79d7e7cada0)
