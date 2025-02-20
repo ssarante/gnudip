@@ -298,6 +298,10 @@ else
     echo "Error al reiniciar xinetd."
     exit 1
 fi
+sudo chown -R www-data:www-data /opt/gnudip/
+sudo chmod -R 755 /opt/gnudip/
+sudo a2enmod cgi
+sudo systemctl restart apache2
 
 
 # Crear usuario admin
