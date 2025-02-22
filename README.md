@@ -76,7 +76,12 @@ Para que GnuDIP funcione correctamente, es necesario configurar Apache2 para man
 ----------------
 
 Alias /html /opt/gnudip/html/
+
 Alias /login /opt/gnudip/cgi-bin/gnudip.cgi
+
+Alias /gnudip/cgi-bin/ /opt/gnudip/cgi-bin/
+
+Alias /dns /usr/local/gnudip/cgi-bin/gdipupdt.cgi
 
 <Location /gnudip/html/>
     Options Indexes
