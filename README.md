@@ -81,7 +81,7 @@ Alias /login /opt/gnudip/cgi-bin/gnudip.cgi
 
 Alias /gnudip/cgi-bin/ /opt/gnudip/cgi-bin/
 
-Alias /dns /usr/local/gnudip/cgi-bin/gdipupdt.cgi
+Alias /dns /opt/gnudip/cgi-bin/gdipupdt.cgi
 
 <Location /gnudip/html/>
     Options Indexes
